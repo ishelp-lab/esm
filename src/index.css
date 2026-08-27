@@ -1,0 +1,190 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --color-esm-terracotta: #652e1f;
+    --color-esm-terracotta-dark: #4e2216;
+    --color-esm-ochre: #b46f34;
+    --color-esm-ochre-light: #c88144;
+    --color-esm-graphite: #46484a;
+    --color-esm-graphite-light: #686c6e;
+    --color-esm-sand: #fcfaf7;
+    --color-esm-sand-muted: #f3efe9;
+    --color-esm-sand-border: #e6dfd5;
+    
+    --font-display: 'Barlow Condensed', 'Bebas Neue', sans-serif;
+    --font-heading: 'Montserrat', sans-serif;
+    --font-body: 'Montserrat', 'Plus Jakarta Sans', sans-serif;
+  }
+
+  body {
+    font-family: var(--font-body);
+    background-color: #fcfaf7;
+    color: #46484a;
+  }
+
+  .font-display {
+    font-family: var(--font-display);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .font-heading {
+    font-family: var(--font-heading);
+  }
+}
+
+/* Custom PDF Exact Styles */
+.bg-esm-terracotta {
+  background-color: #652e1f;
+}
+
+.text-esm-terracotta {
+  color: #652e1f;
+}
+
+.border-esm-terracotta {
+  border-color: #652e1f;
+}
+
+.bg-esm-ochre {
+  background-color: #b46f34;
+}
+
+.text-esm-ochre {
+  color: #b46f34;
+}
+
+.border-esm-ochre {
+  border-color: #b46f34;
+}
+
+.bg-esm-graphite {
+  background-color: #46484a;
+}
+
+.text-esm-graphite {
+  color: #46484a;
+}
+
+.bg-esm-sand {
+  background-color: #fcfaf7;
+}
+
+.bg-esm-sand-muted {
+  background-color: #f3efe9;
+}
+
+.border-esm-sand {
+  border-color: #e6dfd5;
+}
+
+/* Card hover & elevation */
+.esm-card {
+  background-color: #ffffff;
+  border: 1px solid #e8e2d8;
+  box-shadow: 0 4px 20px -2px rgba(101, 46, 31, 0.05);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.esm-card:hover {
+  border-color: #b46f34;
+  transform: translateY(-4px);
+  box-shadow: 0 20px 30px -10px rgba(101, 46, 31, 0.12);
+}
+
+/* Button CTA in Terracotta & Ochre */
+.btn-esm-primary {
+  background: linear-gradient(135deg, #b46f34 0%, #652e1f 100%);
+  color: #ffffff;
+  transition: all 0.25s ease;
+}
+
+.btn-esm-primary:hover {
+  background: linear-gradient(135deg, #c88144 0%, #4e2216 100%);
+  box-shadow: 0 10px 25px -5px rgba(101, 46, 31, 0.4);
+}
+
+.btn-esm-ochre {
+  background-color: #b46f34;
+  color: #ffffff;
+}
+
+.btn-esm-ochre:hover {
+  background-color: #9d5d28;
+}
+
+/* Paper Grid texture */
+.paper-grid {
+  background-size: 32px 32px;
+  background-image: 
+    linear-gradient(to right, rgba(101, 46, 31, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(101, 46, 31, 0.03) 1px, transparent 1px);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f3efe9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #b46f34;
+  border-radius: 5px;
+  border: 2px solid #f3efe9;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #652e1f;
+}
+
+/* Transitions & Solid Block Revelations matching Construction */
+@keyframes slideUpBlock {
+  0% {
+    opacity: 0;
+    transform: translateY(24px) scale(0.98);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.reveal-block {
+  animation: slideUpBlock 0.75s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.reveal-fade {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+.delay-100 {
+  animation-delay: 100ms;
+}
+
+.delay-200 {
+  animation-delay: 200ms;
+}
+
+.delay-300 {
+  animation-delay: 300ms;
+}
+
+/* Stacking animation for lists/grid items */
+.reveal-grid-item {
+  opacity: 0;
+  animation: slideUpBlock 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+

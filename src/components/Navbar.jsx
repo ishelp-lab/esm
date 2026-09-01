@@ -33,9 +33,9 @@ export const Navbar = () => {
 
         {/* Brand Official Logo */}
         <a href="#inicio" className="flex items-center gap-3 group py-0.5" aria-label="ESM Blocos & Pisos">
-          <img 
-            src="/assets/hero/ESM-transparent.png" 
-            alt="ESM Blocos & Pisos" 
+          <img
+            src="/assets/hero/ESM-transparent.png"
+            alt="ESM Blocos & Pisos"
             className="h-11 sm:h-13 w-auto object-contain transition-transform duration-200 group-hover:scale-105"
           />
         </a>
@@ -54,7 +54,7 @@ export const Navbar = () => {
         </nav>
 
         {/* Right CTA Button */}
-        <div className="hidden sm:flex items-center gap-3">
+        <div className="hidden sm:flex items-center gapv-3">
           <a
             href={`https://wa.me/${companyInfo.whatsappRaw}?text=${encodeURIComponent('Olá! Gostaria de solicitar um orçamento direto da fábrica da ESM Blocos e Pisos.')}`}
             target="_blank"

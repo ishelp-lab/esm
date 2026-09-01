@@ -1,4 +1,5 @@
 import React from 'react';
+import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { FeaturesGrid } from './components/FeaturesGrid';
 import { CatalogSection } from './components/CatalogSection';
@@ -10,11 +11,15 @@ import { ScrollReveal } from './components/ScrollReveal';
 export default function App() {
   return (
     <div className="min-h-screen bg-[#fcfaf7] text-[#46484a] flex flex-col selection:bg-[#b46f34] selection:text-white">
-      {/* Main Sections (Simplified to 2 main visual areas: 1. Hero/Pillars, 2. Products & Contact) */}
+      {/* Sticky Navigation Bar */}
+      <Navbar />
+
+      {/* Main Sections */}
       <main className="flex-grow">
-        {/* Section 1: Hero & Manifesto (Pillars from catalog page 3) */}
+        {/* Section 1: Hero */}
         <Hero />
         
+        {/* Section 2: Pillars of Trust & Authority */}
         <ScrollReveal>
           <FeaturesGrid />
         </ScrollReveal>

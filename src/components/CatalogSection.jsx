@@ -1,27 +1,10 @@
-import React, { useState } from 'react';
-import { productCategories, productsData } from '../data/productsData';
+import React from 'react';
+import { productsData } from '../data/productsData';
 import { ProductCard } from './ProductCard';
-import { ProductModal } from './ProductModal';
-import { Boxes, Building2, Grid3X3, Droplets, Download, PhoneCall, Sparkles } from 'lucide-react';
+import { Download, PhoneCall, Sparkles, MessageSquare } from 'lucide-react';
 import { companyInfo } from '../data/companyInfo';
 
 export const CatalogSection = () => {
-  const [activeCategory, setActiveCategory] = useState('todos');
-  const [selectedProduct, setSelectedProduct] = useState(null);
-
-  const getCategoryIcon = (iconName) => {
-    switch (iconName) {
-      case 'Building2': return <Building2 className="w-4 h-4" />;
-      case 'Grid3X3': return <Grid3X3 className="w-4 h-4" />;
-      case 'Droplets': return <Droplets className="w-4 h-4" />;
-      default: return <Boxes className="w-4 h-4" />;
-    }
-  };
-
-  const filteredProducts = activeCategory === 'todos' 
-    ? productsData 
-    : productsData.filter(p => p.category === activeCategory);
-
   return (
     <section id="catalogo" className="py-20 bg-[#fcfaf7] relative border-b border-[#e8e2d8]">
       
@@ -35,14 +18,14 @@ export const CatalogSection = () => {
               Linha Completa de Fabricação
             </div>
             <h2 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-[#652e1f] tracking-tight font-['Barlow_Condensed'] uppercase leading-[0.95]">
-              CATÁLOGO OFICIAL <span className="text-[#b46f34]">ESM BLOCOS & PISOS</span>
+              PRODUTOS <span className="text-[#b46f34]">DIRETO DA FÁBRICA</span>
             </h2>
             <p className="mt-3 text-sm sm:text-base text-[#46484a] max-w-2xl font-['Montserrat']">
-              Blocos estruturais de alta resistência, canaletas, blocos com fundo e pisos intertravados ecológicos e drenantes produzidos em Uberlândia - MG.
+              Blocos estruturais de 4,5 MPa, canaletas, meio bloco e pisos intertravados ecológicos e drenantes produzidos em Uberlândia - MG. Escolha seu produto e solicite orçamento direto no WhatsApp.
             </p>
           </div>
 
-          {/* Quick PDF & WhatsApp CTA */}
+          {/* Quick PDF & Fast Quote Actions */}
           <div className="flex flex-wrap gap-3">
             <a
               href={`https://wa.me/${companyInfo.whatsappRaw}?text=${encodeURIComponent('Olá! Gostaria de receber o catálogo oficial da ESM em PDF com a tabela de valores.')}`}
@@ -51,51 +34,34 @@ export const CatalogSection = () => {
               className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white hover:bg-[#f3efe9] border border-[#e8e2d8] text-xs font-bold text-[#652e1f] transition-colors uppercase tracking-wider font-['Barlow_Condensed'] shadow-sm"
             >
               <Download className="w-4 h-4 text-[#b46f34]" />
-              <span>Baixar Catálogo em PDF</span>
+              <span>Baixar Catálogo PDF</span>
+            </a>
+            <a
+              href={`https://wa.me/${companyInfo.whatsappRaw}?text=${encodeURIComponent('Olá! Gostaria de um orçamento geral para minha obra em Uberlândia/região.')}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[#652e1f] hover:bg-[#4e2216] text-xs font-bold text-white transition-colors uppercase tracking-wider font-['Barlow_Condensed'] shadow-md"
+            >
+              <MessageSquare className="w-4 h-4 fill-white" />
+              <span>Orçamento Geral</span>
             </a>
           </div>
         </div>
 
-        {/* Category Filter Pills */}
-        <div className="flex items-center gap-2 overflow-x-auto pb-4 mb-8 scrollbar-none">
-          {productCategories.map((cat) => (
-            <button
-              key={cat.id}
-              onClick={() => setActiveCategory(cat.id)}
-              className={`flex items-center gap-2 px-5 py-3 rounded-2xl text-xs sm:text-sm font-bold transition-all duration-200 shrink-0 uppercase tracking-wider font-['Barlow_Condensed'] cursor-pointer ${
-                activeCategory === cat.id
-                  ? 'bg-[#652e1f] text-white shadow-md'
-                  : 'bg-white text-[#46484a] hover:text-[#652e1f] hover:bg-[#f3efe9] border border-[#e8e2d8]'
-              }`}
-            >
-              {getCategoryIcon(cat.icon)}
-              <span>{cat.name}</span>
-              <span className={`text-[11px] px-2 py-0.5 rounded-full ${
-                activeCategory === cat.id ? 'bg-[#b46f34] text-white' : 'bg-[#f3efe9] text-[#686c6e]'
-              }`}>
-                {cat.id === 'todos' ? productsData.length : productsData.filter(p => p.category === cat.id).length}
-              </span>
-            </button>
-          ))}
-        </div>
-
-        {/* Product Cards Grid */}
+        {/* Product Cards Grid - All Products Direct */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {filteredProducts.map((product, idx) => (
+          {productsData.map((product, idx) => (
             <div 
-              key={`${activeCategory}-${product.id}`}
+              key={product.id}
               className="reveal-grid-item"
-              style={{ animationDelay: `${idx * 80}ms` }}
+              style={{ animationDelay: `${idx * 50}ms` }}
             >
-              <ProductCard 
-                product={product} 
-                onOpenDetails={(p) => setSelectedProduct(p)} 
-              />
+              <ProductCard product={product} />
             </div>
           ))}
         </div>
 
-        {/* Bottom Banner inside Catalog */}
+        {/* Bottom Banner inside Catalog for Contractors/Engineers */}
         <div className="mt-14 p-8 sm:p-10 rounded-3xl bg-[#652e1f] text-white flex flex-col md:flex-row items-center justify-between gap-6 shadow-xl relative overflow-hidden">
           <div className="absolute right-0 top-0 w-80 h-80 bg-[#b46f34]/20 blur-[90px] rounded-full pointer-events-none" />
           
@@ -123,12 +89,6 @@ export const CatalogSection = () => {
         </div>
 
       </div>
-
-      {/* Product Detail Modal */}
-      <ProductModal 
-        product={selectedProduct} 
-        onClose={() => setSelectedProduct(null)} 
-      />
 
     </section>
   );

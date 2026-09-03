@@ -1,5 +1,5 @@
 import React from 'react';
-import { Truck, CheckCircle2, Award, ArrowRight } from 'lucide-react';
+import { Truck, CheckCircle2, Award, ArrowRight, ShieldCheck, Sparkles, Factory } from 'lucide-react';
 import { companyInfo } from '../data/companyInfo';
 
 export const Hero = () => {
@@ -88,26 +88,6 @@ export const Hero = () => {
               Fabricação padronizada de <strong className="text-[#652e1f] font-bold">Blocos Estruturais</strong>, <strong className="text-[#652e1f] font-bold">Meio Bloco</strong>, <strong className="text-[#652e1f] font-bold">Canaletas</strong> e <strong className="text-[#652e1f] font-bold">Pisos Intertravados Drenantes</strong>. Entregamos com <span className="text-[#b46f34] font-bold">descarga mecanizada</span> em Uberlândia e região.
             </p>
 
-            {/* Bullet Points */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8 w-full reveal-block delay-300">
-              <div className="flex items-center gap-2.5 text-xs sm:text-sm font-semibold text-[#46484a]">
-                <CheckCircle2 className="w-4 h-4 text-[#b46f34] shrink-0" />
-                <span>Resistência garantida de até 4,5 MPa</span>
-              </div>
-              <div className="flex items-center gap-2.5 text-xs sm:text-sm font-semibold text-[#46484a]">
-                <CheckCircle2 className="w-4 h-4 text-[#b46f34] shrink-0" />
-                <span>Descarga rápida com caminhão Munck</span>
-              </div>
-              <div className="flex items-center gap-2.5 text-xs sm:text-sm font-semibold text-[#46484a]">
-                <CheckCircle2 className="w-4 h-4 text-[#b46f34] shrink-0" />
-                <span>Acabamento liso: economia de argamassa</span>
-              </div>
-              <div className="flex items-center gap-2.5 text-xs sm:text-sm font-semibold text-[#46484a]">
-                <CheckCircle2 className="w-4 h-4 text-[#b46f34] shrink-0" />
-                <span>Direto da fábrica com preço competitivo</span>
-              </div>
-            </div>
-
             {/* Primary Action Buttons */}
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 w-full sm:w-auto mb-8 reveal-block delay-300">
               <a
@@ -131,19 +111,6 @@ export const Hero = () => {
               </a>
             </div>
 
-            {/* Quick Metrics Bar */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-6 border-t border-[#e8e2d8] w-full reveal-block delay-300">
-              {companyInfo.metrics.map((m, idx) => (
-                <div key={idx} className="flex flex-col">
-                  <div className="flex items-baseline gap-1">
-                    <span className="text-3xl sm:text-4xl font-extrabold text-[#652e1f] font-['Barlow_Condensed']">{m.value}</span>
-                    <span className="text-xs font-bold text-[#b46f34] uppercase">{m.unit}</span>
-                  </div>
-                  <span className="text-[11px] font-bold text-[#46484a] mt-0.5 leading-tight uppercase tracking-tight">{m.label}</span>
-                </div>
-              ))}
-            </div>
-
           </div>
 
           {/* DESKTOP ONLY Right Column: Visual Feature Showcase aligned with H1 top */}
@@ -151,6 +118,53 @@ export const Hero = () => {
             <HeroVisualCard />
           </div>
 
+        </div>
+
+        {/* Differential Points Bar - Centered across container with auto balanced distribution */}
+        <div className="mt-10 sm:mt-12 pt-8 border-t border-[#e8e2d8] w-full reveal-block delay-300">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-6xl mx-auto items-stretch justify-center">
+            
+            <div className="flex items-center justify-start sm:justify-center gap-3.5 p-3.5 sm:p-4 rounded-2xl bg-white/80 border border-[#e8e2d8] shadow-sm hover:border-[#b46f34]/40 hover:shadow-md transition-all">
+              <div className="w-11 h-11 rounded-xl bg-[#652e1f]/10 border border-[#652e1f]/20 flex items-center justify-center shrink-0">
+                <ShieldCheck className="w-6 h-6 text-[#652e1f]" />
+              </div>
+              <div className="flex flex-col">
+                <span className="text-sm font-bold text-[#652e1f] leading-tight font-['Barlow_Condensed'] uppercase tracking-wide">Resistência Garantida</span>
+                <span className="text-xs text-[#46484a]">Até 4,5 MPa comprovado</span>
+              </div>
+            </div>
+
+            <div className="flex items-center justify-start sm:justify-center gap-3.5 p-3.5 sm:p-4 rounded-2xl bg-white/80 border border-[#e8e2d8] shadow-sm hover:border-[#b46f34]/40 hover:shadow-md transition-all">
+              <div className="w-11 h-11 rounded-xl bg-[#b46f34]/15 border border-[#b46f34]/30 flex items-center justify-center shrink-0">
+                <Truck className="w-6 h-6 text-[#b46f34]" />
+              </div>
+              <div className="flex flex-col">
+                <span className="text-sm font-bold text-[#652e1f] leading-tight font-['Barlow_Condensed'] uppercase tracking-wide">Descarga Rápida</span>
+                <span className="text-xs text-[#46484a]">Caminhão com Munck</span>
+              </div>
+            </div>
+
+            <div className="flex items-center justify-start sm:justify-center gap-3.5 p-3.5 sm:p-4 rounded-2xl bg-white/80 border border-[#e8e2d8] shadow-sm hover:border-[#b46f34]/40 hover:shadow-md transition-all">
+              <div className="w-11 h-11 rounded-xl bg-[#652e1f]/10 border border-[#652e1f]/20 flex items-center justify-center shrink-0">
+                <Sparkles className="w-6 h-6 text-[#652e1f]" />
+              </div>
+              <div className="flex flex-col">
+                <span className="text-sm font-bold text-[#652e1f] leading-tight font-['Barlow_Condensed'] uppercase tracking-wide">Acabamento Liso</span>
+                <span className="text-xs text-[#46484a]">Economia de argamassa</span>
+              </div>
+            </div>
+
+            <div className="flex items-center justify-start sm:justify-center gap-3.5 p-3.5 sm:p-4 rounded-2xl bg-white/80 border border-[#e8e2d8] shadow-sm hover:border-[#b46f34]/40 hover:shadow-md transition-all">
+              <div className="w-11 h-11 rounded-xl bg-[#b46f34]/15 border border-[#b46f34]/30 flex items-center justify-center shrink-0">
+                <Factory className="w-6 h-6 text-[#b46f34]" />
+              </div>
+              <div className="flex flex-col">
+                <span className="text-sm font-bold text-[#652e1f] leading-tight font-['Barlow_Condensed'] uppercase tracking-wide">Direto da Fábrica</span>
+                <span className="text-xs text-[#46484a]">Preço mais competitivo</span>
+              </div>
+            </div>
+
+          </div>
         </div>
       </div>
     </section>

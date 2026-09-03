@@ -4,10 +4,10 @@ import { companyInfo } from '../data/companyInfo';
 
 export const FeaturesGrid = () => {
   const pilarIcons = [
-    <Flame className="w-6 h-6 text-[#b46f34]" />,
-    <Layers className="w-6 h-6 text-[#b46f34]" />,
-    <Sparkles className="w-6 h-6 text-[#b46f34]" />,
-    <Truck className="w-6 h-6 text-[#b46f34]" />
+    <Flame className="w-6 h-6 text-[#b46f34] group-hover:text-[#e6b382] transition-colors" />,
+    <Layers className="w-6 h-6 text-[#b46f34] group-hover:text-[#e6b382] transition-colors" />,
+    <Sparkles className="w-6 h-6 text-[#b46f34] group-hover:text-[#e6b382] transition-colors" />,
+    <Truck className="w-6 h-6 text-[#b46f34] group-hover:text-[#e6b382] transition-colors" />
   ];
 
   return (
@@ -66,7 +66,7 @@ export const FeaturesGrid = () => {
             >
               <div>
                 <div className="flex items-center justify-between mb-4">
-                  <div className="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center group-hover:bg-[#b46f34] group-hover:text-white transition-colors">
+                  <div className="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center group-hover:bg-[#b46f34] text-[#b46f34] group-hover:text-[#e6b382] transition-all">
                     {pilarIcons[idx]}
                   </div>
                   <span className="text-[11px] font-bold px-2.5 py-1 rounded-full bg-[#652e1f] text-[#e6b382] border border-[#83422e] uppercase font-['Barlow_Condensed'] tracking-wider">

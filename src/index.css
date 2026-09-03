@@ -12,9 +12,9 @@
     --color-esm-sand-muted: #f3efe9;
     --color-esm-sand-border: #e6dfd5;
     
-    --font-display: 'Barlow Condensed', 'Bebas Neue', sans-serif;
-    --font-heading: 'Montserrat', sans-serif;
-    --font-body: 'Montserrat', 'Plus Jakarta Sans', sans-serif;
+    --font-display: 'Barlow Condensed', 'Arial Narrow', 'Trebuchet MS', 'Franklin Gothic Medium', sans-serif;
+    --font-heading: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    --font-body: 'Montserrat', 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
   }
 
   body {
@@ -23,6 +23,7 @@
     color: #46484a;
   }
 
+  /* Utility classes with seamless fallbacks */
   .font-display {
     font-family: var(--font-display);
     letter-spacing: 0.04em;
@@ -31,6 +32,16 @@
 
   .font-heading {
     font-family: var(--font-heading);
+  }
+
+  /* Calm fallback for arbitrary Barlow Condensed class */
+  [class*="font-['Barlow_Condensed']"] {
+    font-family: 'Barlow Condensed', 'Arial Narrow', 'Trebuchet MS', 'Franklin Gothic Medium', sans-serif !important;
+  }
+
+  /* Calm fallback for arbitrary Montserrat class */
+  [class*="font-['Montserrat']"] {
+    font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif !important;
   }
 }
 

@@ -7,7 +7,7 @@ export const companyInfo = {
   
   phone: "(34) 9 9880-5010",
   whatsappRaw: "5534998805010",
-  email: "esmblocosepisos@gmail.com",
+  email: "contato@esmblocosepisos.com.br",
   instagram: "esmblocosepisos",
   instagramUrl: "https://instagram.com/esmblocosepisos",
   
